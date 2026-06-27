@@ -21,8 +21,13 @@ connectDB();
 // ================= MIDDLEWARE =================
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://inventory-management-frontend-qvk.onrender.com"
+    ],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
@@ -50,7 +55,7 @@ app.use("/api/alerts", require("./routes/alertRoutes"));
 // Dashboard Routes
 app.use("/api/dashboard", require("./routes/dashboardRoutes"));
 
-// ✅ Stock History Routes (NEW CLEAN MODULE)
+// Stock History Routes
 app.use("/api/history", require("./routes/historyRoutes"));
 
 // ================= START SERVER =================
