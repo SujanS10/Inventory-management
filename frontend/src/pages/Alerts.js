@@ -18,7 +18,7 @@ function Alerts() {
       }
 
       const res = await axios.get(
-        "http://https://inventory-management-o0bg.onrender.com/api/alerts/low-stock",
+        "https://inventory-management-o0bg.onrender.com/api/alerts/low-stock",
         {
           headers: {
             Authorization: `Bearer ${token}`,

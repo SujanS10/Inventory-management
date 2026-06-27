@@ -38,7 +38,7 @@ function Products() {
       setLoading(true);
 
       const res = await axios.get(
-        "http://https://inventory-management-o0bg.onrender.com/api/products",
+        "https://inventory-management-o0bg.onrender.com/api/products",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -61,7 +61,7 @@ function Products() {
   const deleteProduct = async (id) => {
     try {
       await axios.delete(
-        `http://https://inventory-management-o0bg.onrender.com/api/products/${id}`,
+        `https://inventory-management-o0bg.onrender.com/api/products/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -109,7 +109,7 @@ function Products() {
     try {
       if (editMode) {
         await axios.put(
-          `http://https://inventory-management-o0bg.onrender.com/api/products/${selectedId}`,
+          `https://inventory-management-o0bg.onrender.com/api/products/${selectedId}`,
           {
             ...form,
             price: Number(form.price),
@@ -121,7 +121,7 @@ function Products() {
         );
       } else {
         await axios.post(
-          "http://https://inventory-management-o0bg.onrender.com/api/products",
+          "https://inventory-management-o0bg.onrender.com/api/products",
           {
             ...form,
             price: Number(form.price),
@@ -147,7 +147,7 @@ function Products() {
       if (quantity <= 0) return alert("Invalid quantity");
 
       await axios.post(
-        "http://https://inventory-management-o0bg.onrender.com/api/stock/in",
+        "https://inventory-management-o0bg.onrender.com/api/stock/in",
         {
           productId: selectedProduct,
           quantity: Number(quantity),
@@ -171,7 +171,7 @@ function Products() {
       if (quantity <= 0) return alert("Invalid quantity");
 
       await axios.post(
-        "http://https://inventory-management-o0bg.onrender.com/api/stock/out",
+        "https://inventory-management-o0bg.onrender.com/api/stock/out",
         {
           productId: selectedProduct,
           quantity: Number(quantity),

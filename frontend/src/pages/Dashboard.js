@@ -30,7 +30,7 @@ function Dashboard() {
       try {
         const token = localStorage.getItem("token");
 
-        const res = await axios.get("http://https://inventory-management-o0bg.onrender.com/api/dashboard/stats", {
+        const res = await axios.get("https://inventory-management-o0bg.onrender.com/api/dashboard/stats", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

@@ -17,7 +17,7 @@ function BarcodeLookup() {
       }
 
       const res = await axios.get(
-        `http://https://inventory-management-o0bg.onrender.com/api/products/barcode/${barcode}`,
+        `https://inventory-management-o0bg.onrender.com/api/products/barcode/${barcode}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -43,7 +43,7 @@ function BarcodeLookup() {
       }
 
       await axios.post(
-        "http://https://inventory-management-o0bg.onrender.com/api/stock/add",
+        "https://inventory-management-o0bg.onrender.com/api/stock/add",
         {
           productId: id,
           quantity: 1,
@@ -78,7 +78,7 @@ function BarcodeLookup() {
       }
 
       await axios.post(
-        "http://https://inventory-management-o0bg.onrender.com/api/stock/remove",
+        "https://inventory-management-o0bg.onrender.com/api/stock/remove",
         {
           productId: id,
           quantity: 1,
