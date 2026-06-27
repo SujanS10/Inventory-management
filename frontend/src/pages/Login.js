@@ -11,30 +11,33 @@ function Login() {
 
     try {
       const res = await axios.post(
-        "http://https://inventory-management-o0bg.onrender.com/api/auth/login",
+        "https://inventory-management-o0bg.onrender.com/api/auth/login",
         {
           email,
           password,
         }
       );
 
-      // ✅ Save token + user
+      // Save token
       localStorage.setItem("token", res.data.token);
-      localStorage.setItem(
-        "user",
-        JSON.stringify(res.data.user)
-      );
+
+      // Save user
+      localStorage.setItem("user", JSON.stringify(res.data.user));
 
       setError("");
 
       alert("Login Successful");
 
-      // ✅ Better than reload (clean navigation)
+      // Redirect to dashboard
       window.location.href = "/dashboard";
-
     } catch (err) {
-      console.log(err);
-      setError("Invalid email or password");
+      console.error(err);
+
+      if (err.response) {
+        setError(err.response.data.message || "Login failed");
+      } else {
+        setError("Unable to connect to server");
+      }
     }
   };
 
@@ -52,17 +55,16 @@ function Login() {
         onSubmit={handleLogin}
         style={{
           padding: "30px",
-          background: "white",
+          background: "#fff",
           borderRadius: "10px",
           boxShadow: "0 0 10px rgba(0,0,0,0.1)",
-          width: "300px",
+          width: "320px",
         }}
       >
-        <h2 style={{ textAlign: "center" }}>
+        <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
           Login
         </h2>
 
-        {/* ❌ ERROR MESSAGE */}
         {error && (
           <p style={{ color: "red", textAlign: "center" }}>
             {error}
@@ -73,13 +75,13 @@ function Login() {
           type="email"
           placeholder="Email"
           value={email}
-          onChange={(e) =>
-            setEmail(e.target.value)
-          }
+          onChange={(e) => setEmail(e.target.value)}
+          required
           style={{
             width: "100%",
             padding: "10px",
             marginBottom: "10px",
+            boxSizing: "border-box",
           }}
         />
 
@@ -87,13 +89,13 @@ function Login() {
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) =>
-            setPassword(e.target.value)
-          }
+          onChange={(e) => setPassword(e.target.value)}
+          required
           style={{
             width: "100%",
             padding: "10px",
-            marginBottom: "10px",
+            marginBottom: "15px",
+            boxSizing: "border-box",
           }}
         />
 
@@ -106,6 +108,7 @@ function Login() {
             color: "white",
             border: "none",
             cursor: "pointer",
+            fontSize: "16px",
           }}
         >
           Login
