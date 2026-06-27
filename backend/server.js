@@ -23,7 +23,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://inventory-management-frontend-qvk.onrender.com"
+      "https://inventory-management-frontend-qvkq.onrender.com"
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -55,7 +55,7 @@ app.use("/api/alerts", require("./routes/alertRoutes"));
 // Dashboard Routes
 app.use("/api/dashboard", require("./routes/dashboardRoutes"));
 
-// Stock History Routes
+// History Routes
 app.use("/api/history", require("./routes/historyRoutes"));
 
 // ================= START SERVER =================
