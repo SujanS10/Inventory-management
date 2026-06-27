@@ -19,8 +19,8 @@ function Auth() {
   const submit = async () => {
     try {
       const url = isLogin
-        ? "http://localhost:5000/api/auth/login"
-        : "http://localhost:5000/api/auth/register";
+        ? "http://https://inventory-management-o0bg.onrender.com/api/auth/login"
+        : "http://https://inventory-management-o0bg.onrender.com/api/auth/register";
 
       const payload = isLogin
         ? { email: form.email, password: form.password }

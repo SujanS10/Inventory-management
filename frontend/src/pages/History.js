@@ -29,7 +29,7 @@ function History() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/history",
+        "http://https://inventory-management-o0bg.onrender.com/api/history",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -58,7 +58,7 @@ function History() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete("http://localhost:5000/api/history", {
+      await axios.delete("http://https://inventory-management-o0bg.onrender.com/api/history", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
